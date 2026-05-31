@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Locale;
 
-@WebServlet(name = "languageServlet" , value = "/languageServlet")
+@WebServlet(name = "LanguageServlet" , value = "/LanguageServlet")
 public class LanguageServlet extends HttpServlet {
 
     //La servlet sert a mettre le Language du site au language du navigateur

@@ -22,7 +22,7 @@
       <a href="${pageContext.request.contextPath}/messages">Messages</a>
       <a href="${pageContext.request.contextPath}/profile">Profile</a>
       <a href="${pageContext.request.contextPath}/search">Search</a>
-      <a href="${pageContext.request.contextPath}/logout" class="logout">Logout</a>
+      <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout">Logout</a>
     </nav>
   </aside>
 

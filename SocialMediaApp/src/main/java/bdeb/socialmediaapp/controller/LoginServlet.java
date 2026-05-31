@@ -15,6 +15,10 @@ public class LoginServlet extends HttpServlet {
 
     public void init() {}
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String error = "";
         String username = request.getParameter("username");
@@ -23,10 +27,10 @@ public class LoginServlet extends HttpServlet {
         try{
             User user = userService.validateUser(username, password);
             request.getSession().setAttribute("user", user);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/HomeServlet");
         }catch(UserNotFound e){
             request.setAttribute("error", "User not found");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }
 
