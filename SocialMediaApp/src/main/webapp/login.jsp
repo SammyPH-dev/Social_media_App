@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-<fmt:setLocale value="${sessionScope.langue}" />
+<fmt:setLocale value="${sessionScope.language}" />
 <fmt:setBundle basename="messages.SocialMedia" />
 <!DOCTYPE html>
 <html>
@@ -38,6 +38,11 @@
                 <a href="forgotPassword.jsp"><fmt:message key="login.forgot"/></a>
                 <a href="register.jsp"><fmt:message key="login.register"/></a>
             </div>
+
+            <c:if test="${not empty error}">
+                <br>
+                <div class="error-message">${error}</div>
+            </c:if>
         </div>
     </body>
 </html>
