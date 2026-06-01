@@ -11,6 +11,8 @@ public class Post {
     private String fileName;
     private Date createdAt;
 
+    public Post(){}
+
     public Post(int userID, String content, String fileName) {
         this.userID = userID;
         this.content = content;

@@ -44,6 +44,7 @@
 
           <input
                   type="text"
+                  id="username"
                   name="username"
                   class="search-input"
                   placeholder="<fmt:message key='search.placeholder'/>">
@@ -59,7 +60,9 @@
       </section>
 
       <section class="feed">
-
+         <!-- For the ajax response !-->
+        <div id="searchResults"></div>
+        <!-- for the non ajax response !-->
         <c:if test="${not empty users}">
 
           <c:forEach var="searchedUser" items="${users}">
@@ -118,7 +121,7 @@
             <p><fmt:message key="search.noResultSubtitle"/></p>
           </div>
         </c:if>
-
+        <!-- end of non ajax response -->
       </section>
 
     </div>
@@ -128,4 +131,7 @@
 </div>
 
 </body>
+<script>const ContextPath="${pageContext.request.contextPath}"</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/search.js" defer></script>
 </html>

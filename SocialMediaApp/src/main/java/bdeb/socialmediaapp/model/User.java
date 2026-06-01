@@ -1,10 +1,14 @@
 package bdeb.socialmediaapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
     private int userID;
     private String username;
     private String password;
     private String profilePicture;
+
+    public User(){}
 
     public User(int userID, String username, String password) {
         this.userID = userID;
@@ -27,6 +31,7 @@ public class User {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

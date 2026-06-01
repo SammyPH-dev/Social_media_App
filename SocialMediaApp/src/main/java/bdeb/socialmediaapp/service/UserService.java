@@ -14,11 +14,11 @@ public class UserService {
     }
 
     //Recherche par username via userDAO
-    public User findUserByUsername(String username){
+    public List<User> findUserByUsername(String username){
         List<User> users = null;
         try{
             users = userDAO.getUsers(username);
-            return users.get(0);
+            return users;
         }catch(UserNotFound e){
             System.out.println("Error caught in UserService"); //test
             throw new UserNotFound("User not found");

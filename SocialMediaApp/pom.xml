@@ -30,7 +30,12 @@
             <artifactId>mssql-jdbc</artifactId>
             <version>13.2.0.jre11</version>
         </dependency>
-
+        <!-- Dependencies pour JSON !-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.1</version>
+        </dependency>
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
