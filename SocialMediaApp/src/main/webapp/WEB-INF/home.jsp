@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<fmt:setLocale value="${sessionScope.language}" />
+<fmt:setBundle basename="messages.SocialMedia" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +20,11 @@
     <div class="logo">SocialApp</div>
 
     <nav class="menu">
-      <a href="${pageContext.request.contextPath}/home" class="active">Home</a>
-      <a href="${pageContext.request.contextPath}/messages">Messages</a>
-      <a href="${pageContext.request.contextPath}/profile">Profile</a>
-      <a href="${pageContext.request.contextPath}/search">Search</a>
-      <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout">Logout</a>
+      <a href="${pageContext.request.contextPath}/home" class="active"><fmt:message key="home.home"/></a>
+      <a href="${pageContext.request.contextPath}/messages"><fmt:message key="home.messages"/></a>
+      <a href="${pageContext.request.contextPath}/profile"><fmt:message key="home.profile"/></a>
+      <a href="${pageContext.request.contextPath}/search"><fmt:message key="home.search"/></a>
+      <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout"><fmt:message key="home.logout"/></a>
     </nav>
   </aside>
 
@@ -31,24 +33,17 @@
     <div class="feed-wrapper">
 
       <section class="feed-header">
-        <h1>Home</h1>
-        <p>See what your friends are sharing.</p>
+        <h1><fmt:message key="home.title"/></h1>
+        <p><fmt:message key="home.subtitle"/></p>
       </section>
 
       <!-- Create post box -->
       <section class="create-post-card">
-        <form action="${pageContext.request.contextPath}/createPost"
-              method="post">
-
-                    <textarea
-                            name="content"
-                            placeholder="What's on your mind?"
-                            required></textarea>
-
+        <form action="${pageContext.request.contextPath}/PostServlet" method="post">
+                    <textarea name="content" placeholder="<fmt:message key="home.placeholder"/>" required></textarea>
           <div class="create-post-actions">
-            <button type="submit">Post</button>
+            <button type="submit"><fmt:message key="home.postButton"/></button>
           </div>
-
         </form>
       </section>
 
@@ -56,8 +51,8 @@
 
         <c:if test="${empty posts}">
           <div class="empty-feed">
-            <h2>No posts yet</h2>
-            <p>Add friends or create a post to start seeing content.</p>
+            <h2><fmt:message key="home.noPostTitle"/></h2>
+            <p><fmt:message key="home.noPostSubtitle"/></p>
           </div>
         </c:if>
 
@@ -65,10 +60,6 @@
           <article class="post-card">
 
             <div class="post-header">
-              <div class="avatar">
-                  ${post.username.substring(0, 1)}
-              </div>
-
               <div>
                 <h3>${post.username}</h3>
                 <span>${post.createdAt}</span>

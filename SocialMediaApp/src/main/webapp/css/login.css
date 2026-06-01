@@ -94,3 +94,9 @@ body {
     text-align: center;
     margin-bottom: 15px;
 }
+
+.registration-message {
+    color: green;
+    text-align: center;
+    margin-bottom: 15px;
+}

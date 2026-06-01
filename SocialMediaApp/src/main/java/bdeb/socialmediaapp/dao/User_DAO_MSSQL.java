@@ -35,8 +35,9 @@ public class User_DAO_MSSQL implements IUserDAO {
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
+                int userID = resultSet.getInt("id");
                 String password = resultSet.getString("password");
-                user = new User(username, password);
+                user = new User(userID, username, password);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -53,7 +54,8 @@ public class User_DAO_MSSQL implements IUserDAO {
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                user = new User(username, password);
+                int userID = resultSet.getInt("id");
+                user = new User(userID, username, password);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

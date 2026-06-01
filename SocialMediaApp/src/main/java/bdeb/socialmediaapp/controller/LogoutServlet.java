@@ -12,8 +12,8 @@ import java.io.IOException;
 @WebServlet(name = "LogoutServlet", value = "/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
 
+    //Il termine la session et retourne le user a login.jsp via le languageServlet
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("LogoutServlet");
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();

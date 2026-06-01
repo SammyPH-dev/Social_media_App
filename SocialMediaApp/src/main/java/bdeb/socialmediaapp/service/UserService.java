@@ -11,21 +11,24 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
+    //Recherche par username via userDAO
     public User findUserByUsername(String username){
         User user = null;
         try{
             user = userDAO.getUser(username);
             return user;
         }catch(UserNotFound e){
-            System.out.println("Error caught in UserService");
+            System.out.println("Error caught in UserService"); //test
             throw new UserNotFound("User not found");
         }
     }
 
+    //Creation d'un user via userDAO
     public void createUser(String username, String password) {
         userDAO.createUser(username, password);
     }
 
+    //Validation d'un user par username ET password via userDAO (principalement pour le login)
     public User validateUser(String username, String password) {
         User user = userDAO.validateUser(username, password);
         if(user == null){

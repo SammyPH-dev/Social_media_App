@@ -35,13 +35,17 @@
             </form>
 
             <div class="links">
-                <a href="forgotPassword.jsp"><fmt:message key="login.forgot"/></a>
                 <a href="register.jsp"><fmt:message key="login.register"/></a>
             </div>
 
             <c:if test="${not empty error}">
                 <br>
                 <div class="error-message">${error}</div>
+            </c:if>
+
+            <c:if test="${not empty registration}">
+                <br>
+                <div class="registration-message">${registration}</div>
             </c:if>
         </div>
     </body>

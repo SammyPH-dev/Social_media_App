@@ -1,11 +1,13 @@
 package bdeb.socialmediaapp.model;
 
 public class User {
+    private int userID;
     private String username;
     private String password;
     private String profilePicture;
 
-    public User(String username, String password) {
+    public User(int userID, String username, String password) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
     }
@@ -30,6 +32,10 @@ public class User {
     public String getProfilePicture() { return profilePicture; }
 
     public void setProfilePicture(String profilePicture) { this.profilePicture = profilePicture; }
+
+    public int getUserID() { return userID; }
+
+    public void setUserID(int userID) { this.userID = userID; }
 
     @Override
     public String toString() {
