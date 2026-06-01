@@ -12,6 +12,12 @@ public class User {
         this.password = password;
     }
 
+    public User(String profilePicture, int userID, String username) {
+        this.userID = userID;
+        this.username = username;
+        this.profilePicture = profilePicture;
+    }
+
     //Getters and Setters
     public String getUsername() {
         return username;

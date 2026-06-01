@@ -20,10 +20,10 @@
     <div class="logo">SocialApp</div>
 
     <nav class="menu">
-      <a href="${pageContext.request.contextPath}/home" class="active"><fmt:message key="home.home"/></a>
+      <a href="${pageContext.request.contextPath}/HomeServlet" class="active"><fmt:message key="home.home"/></a>
       <a href="${pageContext.request.contextPath}/messages"><fmt:message key="home.messages"/></a>
       <a href="${pageContext.request.contextPath}/ProfileServlet"><fmt:message key="home.profile"/></a>
-      <a href="${pageContext.request.contextPath}/search"><fmt:message key="home.search"/></a>
+      <a href="${pageContext.request.contextPath}/SearchServlet"><fmt:message key="home.search"/></a>
       <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout"><fmt:message key="home.logout"/></a>
     </nav>
   </aside>

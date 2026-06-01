@@ -4,6 +4,8 @@ import bdeb.socialmediaapp.dao.IUserDAO;
 import bdeb.socialmediaapp.model.User;
 import bdeb.socialmediaapp.util.UserNotFound;
 
+import java.util.List;
+
 public class UserService {
     IUserDAO userDAO;
 
@@ -13,10 +15,10 @@ public class UserService {
 
     //Recherche par username via userDAO
     public User findUserByUsername(String username){
-        User user = null;
+        List<User> users = null;
         try{
-            user = userDAO.getUser(username);
-            return user;
+            users = userDAO.getUsers(username);
+            return users.get(0);
         }catch(UserNotFound e){
             System.out.println("Error caught in UserService"); //test
             throw new UserNotFound("User not found");
