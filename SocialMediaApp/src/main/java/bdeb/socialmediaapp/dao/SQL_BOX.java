@@ -25,4 +25,10 @@ public class SQL_BOX {
             )
             ORDER BY p.created_at DESC; 
             """;
+    public static final String FIND_POST_BY_ID= """
+            SELECT p.id, p.user_id, p.content, p.image_path, p.created_at, u.username, u.profile_picture FROM posts AS p
+            INNER JOIN users AS u ON p.user_id = u.id
+            WHERE p.user_id = ?
+            ORDER BY p.created_at DESC;
+            """;
 }

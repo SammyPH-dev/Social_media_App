@@ -61,4 +61,26 @@ public class Post_DAO_MSSQL implements IPostDAO {
         }
         return posts;
     }
+
+    public List<Post> fetchPostById(int userID) {
+        List<Post> posts = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = this.connection.prepareStatement(SQL_BOX.FIND_POST_BY_ID);
+            preparedStatement.setInt(1, userID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                int postID = resultSet.getInt("id");
+                userID = resultSet.getInt("user_id");
+                String content = resultSet.getString("content");
+                String image = resultSet.getString("image_path");
+                Date createdAt = resultSet.getDate("created_at");
+                String username = resultSet.getString("username");
+                String profile_picture = resultSet.getString("profile_picture");
+                posts.add(new Post(postID, userID, username, content, profile_picture, image, createdAt));
+            }
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+        return posts;
+    }
 }

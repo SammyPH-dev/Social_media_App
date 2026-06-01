@@ -22,7 +22,7 @@
     <nav class="menu">
       <a href="${pageContext.request.contextPath}/home" class="active"><fmt:message key="home.home"/></a>
       <a href="${pageContext.request.contextPath}/messages"><fmt:message key="home.messages"/></a>
-      <a href="${pageContext.request.contextPath}/profile"><fmt:message key="home.profile"/></a>
+      <a href="${pageContext.request.contextPath}/ProfileServlet"><fmt:message key="home.profile"/></a>
       <a href="${pageContext.request.contextPath}/search"><fmt:message key="home.search"/></a>
       <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout"><fmt:message key="home.logout"/></a>
     </nav>
@@ -40,7 +40,7 @@
       <!-- Create post box -->
       <section class="create-post-card">
         <form action="${pageContext.request.contextPath}/PostServlet" method="post">
-                    <textarea name="content" placeholder="<fmt:message key="home.placeholder"/>" required></textarea>
+          <textarea name="content" placeholder="<fmt:message key="home.placeholder"/>" required></textarea>
           <div class="create-post-actions">
             <button type="submit"><fmt:message key="home.postButton"/></button>
           </div>

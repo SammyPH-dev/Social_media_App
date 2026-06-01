@@ -7,4 +7,5 @@ import java.util.List;
 public interface IPostDAO {
     public void createPost(int userID, String content, String image);
     public List<Post> fetchPosts(int userID);
+    List<Post> fetchPostById(int userID);
 }
