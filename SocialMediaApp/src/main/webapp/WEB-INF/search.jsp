@@ -4,7 +4,7 @@
 <fmt:setLocale value="${sessionScope.language}" />
 <fmt:setBundle basename="messages.SocialMedia" />
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Home</title>

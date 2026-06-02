@@ -8,7 +8,7 @@
 
     <nav class="menu">
         <a href="${pageContext.request.contextPath}/HomeServlet" class="${activePage == 'home' ? 'active' : ''}"><fmt:message key="home.home"/></a>
-        <a href="${pageContext.request.contextPath}/messages" class="${activePage == 'messages' ? 'active' : ''}"><fmt:message key="home.messages"/></a>
+        <a href="${pageContext.request.contextPath}/MessageServlet" class="${activePage == 'messages' ? 'active' : ''}"><fmt:message key="home.messages"/></a>
         <a href="${pageContext.request.contextPath}/ProfileServlet" class="${activePage == 'profile' ? 'active' : ''}"><fmt:message key="home.profile"/></a>
         <a href="${pageContext.request.contextPath}/SearchServlet" class="${activePage == 'search' ? 'active' : ''}"><fmt:message key="home.search"/></a>
         <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout"><fmt:message key="home.logout"/></a>

@@ -35,8 +35,6 @@ public class HomeServlet extends HttpServlet {
         PostService postService = new PostService(new Post_DAO_MSSQL());
         User user = (User) request.getSession().getAttribute("user");
         List<Post> posts = postService.getPosts(user.getUserID());
-        System.out.println(user.getUserID());
-        System.out.println("Posts found: " + posts.size());
         request.setAttribute("posts", posts);
     }
 }

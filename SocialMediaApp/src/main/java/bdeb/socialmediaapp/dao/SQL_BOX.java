@@ -32,4 +32,34 @@ public class SQL_BOX {
             WHERE p.user_id = ?
             ORDER BY p.created_at DESC;
             """;
+
+    //FRIENDSHIP TABLE REQUETES
+    public static final String FIND_FRIENDS_BY_USER_ID = """
+            SELECT * FROM users
+            WHERE id IN(
+                SELECT receiver_id AS friend_id FROM friendships
+                WHERE requester_id = ?
+                AND status='ACCEPTED'
+                UNION
+                SELECT requester_id AS friend_id FROM friendships
+                WHERE receiver_id = ?
+                AND status='ACCEPTED'
+            )
+            """;
+
+    //Messages Table REQUETES
+    public static final String FIND_CONVERSATION = """
+            SELECT m.id, m.sender_id, m.receiver_id, m.content, m.sent_at, u.username AS sender_username FROM messages m
+            INNER JOIN users u ON m.sender_id = u.id
+            WHERE
+                (m.sender_id = ? AND m.receiver_id = ?)
+                OR
+                (m.sender_id = ? AND m.receiver_id = ?)
+            ORDER BY m.sent_at ASC
+            """;
+
+    public static final String CREATE_MESSAGE = """
+           INSERT INTO messages (sender_id, receiver_id, content)
+           VALUES (?, ?, ?)
+            """;
 }
