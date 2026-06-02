@@ -16,17 +16,8 @@
 
 <div class="app-layout">
 
-  <aside class="sidebar">
-    <div class="logo">SocialApp</div>
-
-    <nav class="menu">
-      <a href="${pageContext.request.contextPath}/HomeServlet"><fmt:message key="home.home"/></a>
-      <a href="${pageContext.request.contextPath}/messages"><fmt:message key="home.messages"/></a>
-      <a href="${pageContext.request.contextPath}/ProfileServlet" class="active"><fmt:message key="home.profile"/></a>
-      <a href="${pageContext.request.contextPath}/SearchServlet"><fmt:message key="home.search"/></a>
-      <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout"><fmt:message key="home.logout"/></a>
-    </nav>
-  </aside>
+  <c:set var="activePage" value="profile" scope="request"/>
+  <jsp:include page="partials/sidebar.jsp"/>
 
   <main class="main-content">
 
@@ -41,7 +32,7 @@
           <div class="profile-picture">
             <c:choose>
               <c:when test="${not empty user.profilePicture}">
-                <img src="${pageContext.request.contextPath}/uploads/${user.profilePicture}"
+                <img src="${pageContext.request.contextPath}/ImageServlet?file=${user.profilePicture}"
                      alt="Profile picture">
               </c:when>
 
@@ -57,6 +48,16 @@
           </div>
 
         </div>
+
+        <form action="${pageContext.request.contextPath}/ProfilePictureServlet"
+              method="post"
+              class="profile-picture-form"
+              enctype="multipart/form-data">
+
+          <input type="file" name="profilePicture" accept="image/*">
+
+          <button class="profile-picture-button" type="submit"><fmt:message key="profile.pictureButton"/></button>
+        </form>
 
       </section>
 

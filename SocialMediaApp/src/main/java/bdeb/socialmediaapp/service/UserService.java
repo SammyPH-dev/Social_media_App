@@ -38,4 +38,9 @@ public class UserService {
         }
         return user;
     }
+
+    //Mise a jour de la photo de profil de l'utilisateur
+    public void setProfileImage(int userID, String fileName){
+        userDAO.updateProfilePictureByID(userID, fileName);
+    }
 }

@@ -58,11 +58,26 @@ public class User_DAO_MSSQL implements IUserDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 int userID = resultSet.getInt("id");
-                user = new User(userID, username, password);
+                String profilePicture = resultSet.getString("profile_picture");
+                user = new User(userID, username, password, profilePicture);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return user;
+    }
+
+    //Change la photo de profile du user
+    public void updateProfilePictureByID(int userID,String fileName){
+        try{
+            PreparedStatement preparedStatement = this.connection.prepareStatement(SQL_BOX.UPDATE_USER_PROFILE_PICTURE_BY_ID);
+            preparedStatement.setString(1,fileName);
+            preparedStatement.setInt(2,userID);
+            preparedStatement.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("error while updating profile picture");
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }

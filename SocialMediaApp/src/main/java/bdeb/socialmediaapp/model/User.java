@@ -10,10 +10,11 @@ public class User {
 
     public User(){}
 
-    public User(int userID, String username, String password) {
+    public User(int userID, String username, String password,  String profilePicture) {
         this.userID = userID;
         this.username = username;
         this.password = password;
+        this.profilePicture = profilePicture;
     }
 
     public User(String profilePicture, int userID, String username) {

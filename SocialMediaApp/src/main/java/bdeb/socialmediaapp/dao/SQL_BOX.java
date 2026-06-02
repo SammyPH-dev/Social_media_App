@@ -6,6 +6,7 @@ public class SQL_BOX {
     public static final String CREATE_USER= "INSERT INTO users (username, password) VALUES (?, ?)";
     public static final String FIND_USER_BY_USERNAME= "SELECT * FROM users WHERE username = ?";
     public static final String FIND_USER_BY_USERNAME_AND_PASSWORD= "SELECT * FROM users WHERE username = ? and password = ?";
+    public static final String UPDATE_USER_PROFILE_PICTURE_BY_ID= "UPDATE users SET profile_picture = ? WHERE id = ?";
 
     //POSTS TABLE REQUETES
     public static final String CREATE_POST= "INSERT INTO posts (user_id, content, image_path) VALUES (?, ?, ?)";

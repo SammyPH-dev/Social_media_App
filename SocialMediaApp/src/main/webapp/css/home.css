@@ -291,3 +291,49 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+.profile-picture-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 0 24px 24px 24px;
+}
+
+.profile-picture-form input[type="file"] {
+    font-size: 14px;
+}
+
+.profile-picture-form input[type="file"]::file-selector-button {
+    background: #f3f4f6;
+    color: #111827;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.file-upload-label,
+.profile-picture-button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.file-upload-label {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.profile-picture-button {
+    background: #2563eb;
+    color: white;
+}
+
+.file-upload-label input {
+    display: none;
+}

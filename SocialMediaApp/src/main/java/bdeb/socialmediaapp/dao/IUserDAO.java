@@ -9,4 +9,5 @@ public interface IUserDAO {
     public void createUser(String username, String password);
     public List<User> getUsers(String username);
     public User validateUser(String username, String password);
+    public void updateProfilePictureByID(int userID, String fileName);
 }
