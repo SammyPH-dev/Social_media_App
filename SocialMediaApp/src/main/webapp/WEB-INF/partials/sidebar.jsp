@@ -13,4 +13,16 @@
         <a href="${pageContext.request.contextPath}/SearchServlet" class="${activePage == 'search' ? 'active' : ''}"><fmt:message key="home.search"/></a>
         <a href="${pageContext.request.contextPath}/LogoutServlet" class="logout"><fmt:message key="home.logout"/></a>
     </nav>
+    <div class="languages">
+        <form action="${pageContext.request.contextPath}/LanguageServlet" method="post">
+            <label class="choixLangues">
+                <input type="radio" name="language" value="en_CA" onchange="this.form.submit()" ${sessionScope.language == 'en' ? 'checked' : ''}/>
+                <p>English</p>
+            </label>
+            <label class="choixLangues">
+                <input type="radio" name="language" value="fr" onchange="this.form.submit()" ${sessionScope.language == 'fr' ? 'checked' : ''}/>
+                <p>Francais</p>
+            </label>
+        </form>
+    </div>
 </aside>

@@ -20,4 +20,17 @@ public class LanguageServlet extends HttpServlet {
         session.setAttribute("language", locale);
         req.getRequestDispatcher("/login.jsp").forward(req, res);
     }
+
+    //Pour changer de francais a anglais, vise versa
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String language = request.getParameter("language");
+        request.getSession().setAttribute("language", language);
+        String referer = request.getHeader("Referer");
+        if (referer != null) {
+            response.sendRedirect(referer);
+        } else {
+            response.sendRedirect(
+                    request.getContextPath() + "/HomeServlet");
+        }
+    }
 }

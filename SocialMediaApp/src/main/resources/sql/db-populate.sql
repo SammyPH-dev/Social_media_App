@@ -27,21 +27,21 @@ INSERT INTO posts
 (user_id, content, image_path)
 VALUES
     (1,
-     'Welcome to SocialApp! This is my first post.',
+     'Premier poste sur l'application,
      NULL),
 
     (2,
-     'Beautiful weather today in Montreal.',
-     'montreal.jpg'),
+     'Incroyable',
+     NULL),
 
     (3,
-     'Just finished my Java assignment.',
+     'TP de fin de session',
      NULL),
 
     (4,
-     'Anyone interested in joining a hockey pool?',
+     'test1234',
      NULL),
 
     (5,
-     'Vacation picture from Quebec City.',
-     'quebec.jpg');
+     'yeah',
+     NULL);

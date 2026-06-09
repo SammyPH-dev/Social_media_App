@@ -15,15 +15,15 @@ body {
     min-height: 100vh;
 }
 
-/* LEFT MENU */
+/* SIDEBAR */
 
 .sidebar {
     width: 260px;
-    background: #ffffff;
+    height: 100vh;
+    position: fixed;
+    background: white;
     border-right: 1px solid #e5e7eb;
     padding: 20px;
-    position: fixed;
-    height: 100vh;
 }
 
 .logo {
@@ -33,21 +33,26 @@ body {
     margin-bottom: 32px;
 }
 
-.menu {
+.menu,
+.languages form {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.menu a {
-    text-decoration: none;
-    color: #374151;
+.menu a,
+.choixLangues {
     padding: 12px 14px;
     border-radius: 10px;
+    color: #374151;
     font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.menu a:hover {
+.menu a:hover,
+.choixLangues:hover,
+.friend-button:hover {
     background: #f3f4f6;
 }
 
@@ -61,7 +66,27 @@ body {
     color: #dc2626;
 }
 
-/* MAIN */
+.languages {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.choixLangues {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.choixLangues input {
+    display: none;
+}
+
+.choixLangues p {
+    margin: 0;
+}
+
+/* MAIN LAYOUT */
 
 .main-content {
     margin-left: 260px;
@@ -71,64 +96,114 @@ body {
     padding: 40px 24px;
 }
 
-.feed {
+.feed,
+.feed-wrapper {
     width: 100%;
     max-width: 720px;
+}
+
+.message-wrapper {
+    width: 100%;
+    max-width: 1000px;
 }
 
 .feed-header {
-    width: 100%;
-    max-width: 720px;
     margin-bottom: 24px;
 }
 
-.feed-header h1 {
+.feed-header h1,
+.profile-details h1 {
     font-size: 28px;
     margin-bottom: 6px;
 }
 
-.feed-header p {
+.feed-header p,
+.profile-details p,
+.empty-feed p,
+.muted-text,
+.post-header span {
     color: #6b7280;
+}
+
+/* CARDS */
+
+.post-card,
+.empty-feed,
+.create-post-card,
+.profile-card,
+.friend-list,
+.chat-panel {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    margin-bottom: 20px;
+}
+
+.post-card,
+.empty-feed,
+.friend-list,
+.chat-panel {
+    padding: 20px;
+}
+
+.create-post-card {
+    padding: 18px;
+}
+
+.empty-feed {
+    text-align: center;
+    padding: 40px;
 }
 
 /* POSTS */
 
-.post-card,
-.empty-feed {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-}
-
-.post-header {
+.post-header,
+.profile-info,
+.profile-picture-form,
+.friend-button {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.post-header {
     margin-bottom: 14px;
+}
+
+.avatar,
+.profile-picture-small,
+.friend-avatar {
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    overflow: hidden;
 }
 
 .avatar {
     width: 42px;
     height: 42px;
-    background: #2563eb;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
 }
 
-.post-header h3 {
-    font-size: 16px;
+.profile-picture-small {
+    width: 50px;
+    height: 50px;
 }
 
-.post-header span {
-    font-size: 13px;
-    color: #6b7280;
+.friend-avatar {
+    width: 36px;
+    height: 36px;
+}
+
+.profile-picture-small img,
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .caption {
@@ -139,50 +214,29 @@ body {
 .post-image {
     width: 100%;
     border-radius: 14px;
-    border: 1px solid #e5e7eb;
 }
 
-/* EMPTY */
+/* FORMS */
 
-.empty-feed {
-    text-align: center;
-    padding: 40px;
-}
-
-.empty-feed h2 {
-    margin-bottom: 8px;
-}
-
-.empty-feed p {
-    color: #6b7280;
-}
-
-.feed-wrapper {
+textarea,
+.search-input,
+.message-form input[type="text"] {
     width: 100%;
-    max-width: 720px;
-}
-
-.create-post-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-}
-
-.create-post-card textarea {
-    width: 100%;
-    min-height: 90px;
-    resize: vertical;
     border: 1px solid #d1d5db;
     border-radius: 12px;
-    padding: 14px;
+    padding: 12px;
     font-size: 15px;
     font-family: Arial, sans-serif;
 }
 
-.create-post-card textarea:focus {
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+textarea:focus,
+.search-input:focus,
+.message-form input[type="text"]:focus {
     outline: none;
     border-color: #2563eb;
 }
@@ -193,7 +247,10 @@ body {
     margin-top: 12px;
 }
 
-.create-post-actions button {
+button,
+.profile-picture-button,
+.create-post-actions button,
+.message-form button {
     background: #2563eb;
     color: white;
     border: none;
@@ -203,17 +260,18 @@ body {
     cursor: pointer;
 }
 
-.create-post-actions button:hover {
+button:hover,
+.profile-picture-button:hover,
+.create-post-actions button:hover,
+.message-form button:hover {
     background: #1d4ed8;
 }
 
+/* PROFILE */
+
 .profile-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
     overflow: hidden;
     margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .profile-cover {
@@ -222,29 +280,18 @@ body {
 }
 
 .profile-info {
-    display: flex;
-    align-items: center;
     gap: 20px;
-    padding: 0 24px 24px 24px;
+    padding: 0 24px 24px;
 }
 
 .profile-picture {
     width: 110px;
     height: 110px;
     margin-top: -45px;
+    border: 4px solid white;
     border-radius: 50%;
     background: #2563eb;
-    border: 4px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
-}
-
-.profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .profile-picture span {
@@ -253,95 +300,24 @@ body {
     font-weight: bold;
 }
 
-.profile-details h1 {
-    font-size: 28px;
-    margin-bottom: 6px;
-}
-
-.profile-details p {
-    color: #6b7280;
-}
-
-.search-input {
-    width: 100%;
-    min-height: 50px;
-    border: 1px solid #d1d5db;
-    border-radius: 12px;
-    padding: 12px;
-    font-size: 15px;
-    margin-bottom: 12px;
-}
-
-.profile-picture-small {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #2563eb;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-right: 12px;
-}
-
-.profile-picture-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .profile-picture-form {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    padding: 0 24px 24px 24px;
-}
-
-.profile-picture-form input[type="file"] {
-    font-size: 14px;
-}
-
-.profile-picture-form input[type="file"]::file-selector-button {
-    background: #f3f4f6;
-    color: #111827;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 16px;
-    margin-right: 10px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.file-upload-label,
-.profile-picture-button {
-    border: none;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
+    padding: 0 24px 24px;
 }
 
 .file-upload-label {
     background: #f3f4f6;
     color: #111827;
-}
-
-.profile-picture-button {
-    background: #2563eb;
-    color: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .file-upload-label input {
     display: none;
 }
 
-.message-wrapper {
-    width: 100%;
-    max-width: 1000px;
-}
+/* MESSAGES */
 
 .message-layout {
     display: grid;
@@ -349,48 +325,15 @@ body {
     gap: 20px;
 }
 
-.friend-list,
-.chat-panel {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-}
-
-.friend-list h2,
-.chat-header h2 {
-    margin-bottom: 16px;
-}
-
 .friend-button {
     width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
     border: none;
     background: transparent;
     padding: 12px;
     border-radius: 10px;
-    cursor: pointer;
     text-align: left;
     font-weight: 600;
-}
-
-.friend-button:hover {
-    background: #f3f4f6;
-}
-
-.friend-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #2563eb;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+    cursor: pointer;
 }
 
 .conversation {
@@ -410,26 +353,12 @@ body {
 
 .message-form input[type="text"] {
     flex: 1;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    padding: 12px;
-    font-size: 14px;
 }
 
 .message-form button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 10px;
     padding: 0 18px;
-    font-weight: 600;
-    cursor: pointer;
 }
 
-.message-form button:hover {
-    background: #1d4ed8;
-}
-
-.muted-text {
-    color: #6b7280;
+.friend-button {
+    color: #374151;
 }
